@@ -1,0 +1,156 @@
+#calc, .form {
+	font-size: 20px;
+}
+
+.form {
+	padding: 1em;
+/* 	width: 100%; */
+}
+
+
+.formdistance, .formtime {
+	padding: 0.5em;
+}
+
+#calc {
+	padding: 5px;
+ 	margin-top: 5px;
+ 	float: left;
+ 	clear: left;
+ 	width: 100%; 	 	
+}
+
+.rejection {
+	font-weight: 400;
+	color: #914040;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: left;
+    padding-right: 5px;
+}
+
+input {
+  display: inline-block;
+  float: left;
+}
+
+#calc label {
+	font-size: 20px;
+	height: 35px !important;
+	padding-top: 7px;
+	
+}
+
+
+#calc output {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-size: 20px;
+ 	font-style: normal;
+ 	color: rgb(51, 51, 51);
+ 	margin: 5px;
+}
+
+input, label {
+	margin: 5px;
+}
+
+.workout-pace {
+	margin-top: 20px;
+}
+
+
+/** Bootstrap CSS **/
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.wrap {
+  /* Margin bottom by footer height */
+  margin-top: 25px;
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #F7F7F7;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+/** Bootstrap CSS **/
+/* Custom page CSS
+-------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+
+/*
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+*/
+
+
+/* override Bootstrap */
+
+.table {
+	width: inherit !important;	
+}
+
+.table tr, .table th {
+	border-top: none !important;
+	font-weight: normal !important;
+}
+
+
+/* Workout Table CSS */
+
+.table.workout th {
+	font-weight: 500 !important;
+	text-align: center;
+}
+
+.table.workout th, .table.workout td {
+	padding-right: 50px !important;
+}
+
+
+.table.workout {
+	text-align: right;
+}
+
+.table.workout caption {
+	text-align: center !important;
+	color: rgb(51, 51, 51);
+	font-weight: 500 !important;
+}
+
