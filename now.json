@@ -3,7 +3,7 @@
   "name": "php-7",
     "builds": [
       { "src": "index.html", "use": "@now/static" },
-      { "src": "/assets/js/*.js", "use": "@now/static" }
+      { "src": "/assets/js/*.js", "use": "@now/static" },
       { "src": "/assets/css/*.css", "use": "@now/static" }
     ]
 }
