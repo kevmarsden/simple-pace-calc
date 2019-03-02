@@ -1,1 +1,7 @@
-<?php echo "Hello from PHP on Now 2.0!"; ?>
+<?php 
+
+echo "Welcom to Kevin's website"; 
+
+
+
+?>
