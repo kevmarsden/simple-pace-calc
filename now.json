@@ -3,8 +3,8 @@
   "name": "php-7",
   "builds": [
     {
-      "src": "*.php",
-      "use": "@now/php"
+    "src": "*.html", 
+    "use": "@now/static"
     }
   ]
 }
