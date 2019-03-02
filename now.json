@@ -2,7 +2,6 @@
   "version": 2,
   "name": "php-7",
     "builds": [
-      // { "src": "*.js", "use": "@now/node" },
       { "src": "index.html", "use": "@now/static" }
     ]
 }
