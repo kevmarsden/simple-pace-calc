@@ -1,14 +1,7 @@
 {
   "version": 2,
-  "alias": "simplepacecalc.com",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://simplepacecalc.com/$1" }
-    }
-  ],
   "name": "simple-pace-calc",
+  "alias": "simplepacecalc.com",
     "builds": [
       { "src": "*.html", "use": "@now/static" },
       { "src": "/assets/js/*.js", "use": "@now/static" },
