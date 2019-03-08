@@ -1,7 +1,6 @@
 {
-  "alias": "simplepacecalc.com",
   "version": 2,
-  "alias": ["www.simplepacecalc.com"],
+  "alias": "simplepacecalc.com",
   "routes": [
     {
       "src": "/(.*)",
