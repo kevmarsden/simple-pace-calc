@@ -38,15 +38,13 @@ function distanceConvert() {
 	distanceConversion = distanceEntry.replace( /[^\d.-]/g, '' );
 	
 	// prints vars in console log.  remove once app is stable
-	console.log( "distanceEntry: " + distanceEntry + " distanceConversion: " + distanceConversion + "  Unit: " + distanceUnit );
+	//console.log( "distanceEntry: " + distanceEntry + " distanceConversion: " + distanceConversion + "  Unit: " + distanceUnit );
 
 	distanceToMiles( distanceConversion, distanceUnit );
 	
 }
 
-//fix global variable someday...	
 var distanceConversion;	
-
 
 function distanceToMiles(distance, unit) {
 	
@@ -73,8 +71,6 @@ function distanceToMiles(distance, unit) {
 	return distanceConversion;
 }
 
-	
-//fix global variable someday...	
 var totalSeconds;	
 
 function paceFunction() {
@@ -122,7 +118,6 @@ function paceFunction() {
 	return totalSeconds;
 }
 
-//fix global variable someday...	
 var paceTotalSeconds;	
 var paceResult;
 
