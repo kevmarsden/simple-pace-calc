@@ -25,13 +25,13 @@
 	color: #914040;
 }
 
-label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 100px;
-    text-align: left;
-    padding-right: 5px;
+label {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 100px;
+	text-align: left;
+	padding-right: 5px;
 }
 
 input {
@@ -154,3 +154,8 @@ code {
 	font-weight: 500 !important;
 }
 
+
+/* add more space between form elemetns */
+label, input {
+	margin-bottom: 1em;
+}
