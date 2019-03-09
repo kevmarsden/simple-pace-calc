@@ -113,7 +113,7 @@ function paceFunction() {
 	displayPace( totalSeconds );
 		
 	// prints vars in console log.  remove once app is stable
-	console.log( "Hours: " + hoursToSeconds + "  Min: " + minutesToSeconds + "  Sec: " + secondsToSeconds + "  Tot: "+ totalSeconds );	
+	//console.log( "Hours: " + hoursToSeconds + "  Min: " + minutesToSeconds + "  Sec: " + secondsToSeconds + "  Tot: "+ totalSeconds );	
 	
 	return totalSeconds;
 }
