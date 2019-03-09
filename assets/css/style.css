@@ -8,7 +8,7 @@
 }
 
 
-.formdistance, .formtime {
+.formd-istance, .form-time {
 	padding: 0.5em;
 }
 
@@ -56,7 +56,7 @@ input {
 }
 
 input, label {
-	margin: 5px;
+	margin: 10px !important;
 }
 
 .workout-pace {
@@ -143,7 +143,6 @@ code {
 	padding-right: 50px !important;
 }
 
-
 .table.workout {
 	text-align: right;
 }
@@ -154,8 +153,8 @@ code {
 	font-weight: 500 !important;
 }
 
-
-/* add more space between form elemetns */
-label, input {
-	margin-bottom: 1em;
-}
+@media screen and ( max-width: 600px ) { 
+	input {
+		width: 80%;
+	}
+ }
