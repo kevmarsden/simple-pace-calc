@@ -158,3 +158,10 @@ code {
 		width: 80%;
 	}
  }
+
+ #paceEntry:focus,
+ #distanceEntry:focus,
+ #timeEntry:focus {
+    border: 2px orange solid;
+    background: rgb(231, 153, 153);
+}
