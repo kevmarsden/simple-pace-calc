@@ -155,7 +155,7 @@ code {
 
 @media screen and ( max-width: 600px ) { 
 	input {
-		width: 40%;
+		width: 50%;
 	}
 	input[type=button] {
 		width: 100%;
