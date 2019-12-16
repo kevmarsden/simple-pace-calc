@@ -121,7 +121,7 @@ function distanceCalc() {
 }
 
 function displayDistance(distance) { 
-	if (isNaN(parseInt(distance))) {
+	if (isNaN(parseInt(distance)) || distance === 0) {
 		distance = "<span class = 'rejection'>Please reenter the time and pace</span>";
 		document.getElementById('calc').innerHTML = `<output>${distance}</output>`;
 	}
@@ -174,9 +174,9 @@ function timeCalc() {
 }
 
 function displayTime(time) { 
-	if (isNaN(parseInt(time))) {
+	if (isNaN(parseInt(time)) || time == "0:00") {
 		time = "<span class = 'rejection'>Please reenter the distance and pace</span>";
-		document.getElementById('calc').innerHTML = `<output> + ${time} + </output>`;
+		document.getElementById('calc').innerHTML = `<output>${time}</output>`;
 	}
 	else {
 		document.getElementById('timeEntry').value = `${time}`;
@@ -196,14 +196,14 @@ function displayPace(seconds) {
 	let paceResult = calculatePace(seconds);
 
 	// instead of form validation, this will catch most entries that won't work
-	if (paceResult === 'NaN' || paceResult === 'NaN:NaN' || paceResult === 'NaN:NaN:NaN' ||paceResult === 'Infinity:NaN') {
+	if (paceResult === 'NaN' || paceResult === 'NaN:NaN' || paceResult === 'NaN:NaN:NaN' || paceResult === 'Infinity:NaN') {
 		paceResult = "<span class = 'rejection'>Please reenter the time and distance</span>";
 		document.getElementById('calc').innerHTML = `<output>${paceResult}</output>`;
 	}
 	
 	else {
 	document.getElementById('paceEntry').value = paceResult;
-	//Change focus state to the pace input field
+	// Change focus state to the pace input field
 	document.getElementById('paceEntry').focus();
 	}
 }
