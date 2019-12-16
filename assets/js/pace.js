@@ -36,9 +36,6 @@ function distanceConvert() {
 	//from stackoverflow.com/questions/1862130/strip-non-numeric-characters-from-string 
 	distanceSanitize = distanceEntry.replace( /[^\d.-]/g, '' );
 	
-	// prints vars in console log.  remove once app is stable
-	//console.log( "distanceEntry: " + distanceEntry + " distanceConversion: " + distanceConversion + "  Unit: " + distanceUnit );
-	
 	return convertDistanceToMiles( distanceSanitize, distanceUnit );
 	
 }
@@ -121,7 +118,7 @@ function distanceCalc() {
 function displayDistance(distance) { 
 	if (isNaN(parseInt(distance))) {
 		distance = "<span class = 'rejection'>" + "Please reenter the time and pace" + "</span>";
-		document.getElementById('calc').innerHTML = "<label>Pace:</label><output>" + distance + "</output>";
+		document.getElementById('calc').innerHTML = "<output>" + distance + "</output>";
 	}
 	else {
 		document.getElementById('distanceEntry').value = `${distance.toFixed(2)}`;
@@ -188,17 +185,15 @@ function paceCalc() {
 }
 
 function displayPace(seconds) { 
-	console.log(seconds);
 	let paceResult = calculatePace(seconds);
 
 	// instead of form validation, this will catch most entries that won't work
 	if (paceResult === 'NaN' || paceResult === 'NaN:NaN' || paceResult === 'NaN:NaN:NaN' ||paceResult === 'Infinity:NaN') {
 		paceResult = "<span class = 'rejection'>" + "Please reenter the time and distance" + "</span>";
-		document.getElementById('calc').innerHTML = "<label>Pace:</label><output>" + paceResult + "</output>";
+		document.getElementById('calc').innerHTML = "<output>" + paceResult + "</output>";
 	}
 	
 	else {
-	//document.getElementById('calc').innerHTML = "<label>Pace:</label><output>" + paceResult + " minutes/mile" + "</output>" + "<div class = 'workout-pace'> <label></label><input type='button' value='Show Race Pace for Workouts' onclick='workoutFunction();'/> </div>";
 	document.getElementById('paceEntry').value = paceResult;
 	//Change focus state to the pace input field
 	document.getElementById('paceEntry').focus();
@@ -305,5 +300,5 @@ function workoutFunction(seconds) {
 							<tr><td class = 'table-distance'>1600</td><td>${sixteenHundredMeters}</td></tr>
 						</table>`;
 
-	document.getElementById('calc').innerHTML = "<label>Pace:</label><output>"  + paceResult + " minutes/mile" + "</output>" + "<div class = 'workout-pace'><p>" + workoutPaces +"</p></div>";
+	document.getElementById('calc').innerHTML = "<div class = 'workout-pace'><p>" + workoutPaces +"</p></div>";
 }
