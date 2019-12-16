@@ -1,4 +1,5 @@
 function distanceConvert() {
+	
 	// convert entry from dropdown menu into miles and return or return manual entry
 	
 	var distanceEntry = document.getElementById( 'distanceEntry' ).value;
@@ -20,11 +21,11 @@ function distanceConvert() {
 		distanceUnit = 'm';
 	}
 	
-	else if ( distanceEntry === 'Marathon' ) {
+	else if ( distanceEntry === 'Marathon' || distanceEntry === 'marathon' ) {
 		distanceUnit = 'marathon';
 	}
 	
-	else if ( distanceEntry === 'half-marathon' || distanceEntry === 'Half Marathon' || distanceEntry === 'half marathon' ) {
+	else if ( distanceEntry === 'half' || distanceEntry === 'half-marathon' || distanceEntry === 'Half Marathon' || distanceEntry === 'half marathon' ) {
 		distanceUnit = 'half';
 	}
 	
@@ -105,10 +106,14 @@ function convertTimeToSeconds(timeEntry) {
 }
  
 function distanceCalc() {
+	document.getElementById('calc').innerHTML = '';
+	
 	let timeEntry = document.getElementById( 'timeEntry' ).value;
+	//timeEntry = timeEntry.replace( /[^\d.-]/g, '' );
 	let totalSeconds = convertTimeToSeconds(timeEntry);
 
 	let paceEntry = document.getElementById( 'paceEntry').value;
+	//paceEntry = paceEntry.replace( /[^\d.-]/g, '' );
 	let paceSeconds = convertTimeToSeconds(paceEntry);
 
 	let distance = totalSeconds / paceSeconds;
@@ -117,8 +122,8 @@ function distanceCalc() {
 
 function displayDistance(distance) { 
 	if (isNaN(parseInt(distance))) {
-		distance = "<span class = 'rejection'>" + "Please reenter the time and pace" + "</span>";
-		document.getElementById('calc').innerHTML = "<output>" + distance + "</output>";
+		distance = "<span class = 'rejection'>Please reenter the time and pace</span>";
+		document.getElementById('calc').innerHTML = `<output>${distance}</output>`;
 	}
 	else {
 		document.getElementById('distanceEntry').value = `${distance.toFixed(2)}`;
@@ -128,9 +133,11 @@ function displayDistance(distance) {
 }
 
 function timeCalc() {
+	document.getElementById('calc').innerHTML = '';
 	let distanceEntry = distanceConvert();
 
 	let paceEntry = document.getElementById( 'paceEntry').value;
+
 	let paceSeconds = convertTimeToSeconds(paceEntry);
 
 	totalTime = distanceEntry * paceSeconds;
@@ -168,7 +175,7 @@ function timeCalc() {
 
 function displayTime(time) { 
 	if (isNaN(parseInt(time))) {
-		time = "<span class = 'rejection'>" + "Please reenter the distance and pace" + "</span>";
+		time = "<span class = 'rejection'>Please reenter the distance and pace</span>";
 		document.getElementById('calc').innerHTML = `<output> + ${time} + </output>`;
 	}
 	else {
@@ -179,6 +186,7 @@ function displayTime(time) {
 }
 
 function paceCalc() {
+	document.getElementById('calc').innerHTML = '';
 	let timeEntry = document.getElementById( 'timeEntry' ).value;
 	let totalSeconds = convertTimeToSeconds(timeEntry);
 	displayPace( totalSeconds );
@@ -189,8 +197,8 @@ function displayPace(seconds) {
 
 	// instead of form validation, this will catch most entries that won't work
 	if (paceResult === 'NaN' || paceResult === 'NaN:NaN' || paceResult === 'NaN:NaN:NaN' ||paceResult === 'Infinity:NaN') {
-		paceResult = "<span class = 'rejection'>" + "Please reenter the time and distance" + "</span>";
-		document.getElementById('calc').innerHTML = "<output>" + paceResult + "</output>";
+		paceResult = "<span class = 'rejection'>Please reenter the time and distance</span>";
+		document.getElementById('calc').innerHTML = `<output>${paceResult}</output>`;
 	}
 	
 	else {
