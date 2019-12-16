@@ -163,5 +163,5 @@ code {
  #distanceEntry:focus,
  #timeEntry:focus {
     border: 2px orange solid;
-    background: rgb(231, 153, 153);
+    background: rgb(237, 232, 232)
 }
