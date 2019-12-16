@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Cache-control" content="public" />
 
-    <title>Simple Pace Calculator - Running</title>
+    <title>Simple Pace Calculator</title>
     <meta name="description"
         content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
 
@@ -91,11 +91,11 @@
             <div class="form">
                 <label>Time:</label>
                 <input name="timeEntry" type="text" maxlength="10" id="timeEntry" class="timeEntry"
-                    placeholder="Enter as: hrs:min:sec" pattern="\d:" />
+                    placeholder="hrs:min:sec" pattern="\d:" />
 
                 <label>Distance:</label>
                 <input name="distanceEntry" type="text" maxlength="15" id="distanceEntry" class="distanceEntry"
-                    list="distanceDropMenu" placeholder="Enter distance" />
+                    list="distanceDropMenu" placeholder="distance" />
                 <datalist id="distanceDropMenu">
                     <option>3 miles</option>
                     <option>5k</option>
@@ -123,7 +123,7 @@
 
                 <label>Pace:</label>
                 <input name="paceEntry" type="text" maxlength="10" id="paceEntry" class="passEntry"
-                    placeholder="Enter min:sec" />
+                    placeholder="min:sec" />
 
                 <label>Calculate:</label>
                 <input type="button" value="Time" onclick="timeCalc();" />
