@@ -1,0 +1,10 @@
+<footer class="fixed inset-x-0 bottom-0 p-4 bg-slate-200">
+  <div class="">
+    <p class="text-muted">
+      Created by <a href="https://kmarsden.com">Kevin Marsden</a>
+    </p>
+  </div>
+</footer>
+</body>
+
+</html>

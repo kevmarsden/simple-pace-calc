@@ -1,135 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--#include file="includes/header.shtml" -->
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-control" content="public" />
+<body class="h-full">
 
-    <title>Simple Pace Calculator</title>
-    <meta name="description"
-        content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+    <div class="min-h-full">
+        <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <a href="/" class="text-white">Simple Pace Calc</a>
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    aria-current="page">Home</a>
 
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+                                <a href="./help.html"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Help</a>
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
-
-    <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
-
-    <!-- Bootstrap CSS and theme -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script async src="./assets/js/bootstrap.min.js"></script>
-
-    <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
-
-</head>
-
-<body>
-    <!-- Bootstrap fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container fake">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="https://simplepacecalc.com">Simple Pace Calculator</a>
-            </div>
-
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="https://simplepacecalc.com">Home</a>
-                    </li>
-
-                    <li><a href="help.html">Help</a></li>
-                </ul>
-            </div>
-            <!--.nav-collapse -->
-        </div>
-        <!-- .container -->
-    </nav>
-
-    <!-- Bootstrap page content -->
-    <div class="container">
-        <div class="page-header"></div>
-        <!-- end page-header div -->
-
-        <form>
-            <!-- <p>
-                Enter at least two values and click the button for the field you want to calculate
-            </p> -->
-            <div class="form">
-                <label>Time:</label>
-                <input name="timeEntry" type="text" maxlength="10" id="timeEntry" class="timeEntry"
-                    placeholder="hrs:min:sec" pattern="\d:" />
-
-                <label>Distance:</label>
-                <input name="distanceEntry" type="text" maxlength="15" id="distanceEntry" class="distanceEntry"
-                    list="distanceDropMenu" placeholder="distance" />
-                <datalist id="distanceDropMenu">
-                    <option>3 miles</option>
-                    <option>5k</option>
-                    <!-- value = 3.10686 -->
-                    <option>8k</option>
-                    <!-- value = 4.97097 -->
-                    <option>10k</option>
-                    <!-- value = 6.21371 -->
-                    <option>15k</option>
-                    <!-- value = 9.32057 -->
-                    <option>10 miles</option>
-                    <!-- value = 10 -->
-                    <option>Half Marathon</option>
-                    <option>Marathon</option>
-                    <!-- value = 26.21875 -->
-                    <option>50k</option>
-                    <!-- value = 31.0686 -->
-                    <option>50 miles</option>
-                    <!-- value = 50 -->
-                    <option>100k</option>
-                    <!-- value = 62.1371 -->
-                    <option>100 miles</option>
-                    <!-- value = 100 -->
-                </datalist>
-
-                <label>Pace:</label>
-                <input name="paceEntry" type="text" maxlength="10" id="paceEntry" class="passEntry"
-                    placeholder="min:sec" />
-
-                <label>Calculate:</label>
-                <input type="button" value="Time" onclick="timeCalc();" />
-                <input type="button" value="Distance" onclick="distanceCalc();" />
-                <input type="button" value="Pace" onclick="paceCalc();" />
-
-                <div id="calc">
-                    <label></label>
-                    <script>
-                        document.write("");
-                    </script>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- .form-->
-        </form>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="md:hidden" id="mobile-menu">
+                <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                        aria-current="page">Home</a>
+
+                    <a href="./help.html"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Help</a>
+
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <!-- Replace with your content -->
+                <div class="px-4 py-6 sm:px-0">
+                    <div class="h-96 rounded-lg border-4 border-dashed border-gray-200">
+
+                        <div class="container">
+                            <div class="page-header"></div>
+                            <!-- end page-header div -->
+
+                            <form class="space-y-8 divide-y divide-gray-200">
+                                <!-- <p>
+                                    Enter at least two values and click the button for the field you want to calculate
+                                </p> -->
+                                <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+
+
+                                    <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
+                                        <div>
+                                            <h3 class="text-lg font-medium leading-6 text-gray-900"></h3>
+                                            <p class="mt-1 max-w-2xl text-sm text-gray-500">Enter two of the three
+                                                values and select which value you would like to calculate
+                                            </p>
+                                        </div>
+                                        <div class="space-y-6 sm:space-y-5">
+                                            <div
+                                                class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                                <label for="time
+                                                    class=" block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                                    Time</label>
+                                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                                    <input type="text" name="timeEntry" id="timeEntry"
+                                                        class="timeEntry block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
+                                                        placeholder="hrs:min:sec" pattern="\d:">
+
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                                <label for="distance"
+                                                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                                    Distance</label>
+                                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                                    <input type="text" name="distanceEntry" id="distanceEntry"
+                                                        maxlength="15" list="distanceDropMenu" placeholder="distance"
+                                                        class="distanceEntry block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
+                                                    <datalist id="distanceDropMenu">
+                                                        <option>3 miles</option>
+                                                        <option>5k</option>
+                                                        <!-- value = 3.10686 -->
+                                                        <option>8k</option>
+                                                        <!-- value = 4.97097 -->
+                                                        <option>10k</option>
+                                                        <!-- value = 6.21371 -->
+                                                        <option>15k</option>
+                                                        <!-- value = 9.32057 -->
+                                                        <option>10 miles</option>
+                                                        <!-- value = 10 -->
+                                                        <option>Half Marathon</option>
+                                                        <option>Marathon</option>
+                                                        <!-- value = 26.21875 -->
+                                                        <option>50k</option>
+                                                        <!-- value = 31.0686 -->
+                                                        <option>50 miles</option>
+                                                        <!-- value = 50 -->
+                                                        <option>100k</option>
+                                                        <!-- value = 62.1371 -->
+                                                        <option>100 miles</option>
+                                                        <!-- value = 100 -->
+                                                    </datalist>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                                <label for="pace"
+                                                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                                    Pace</label>
+                                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                                    <input type="text" name="paceEntry" id="paceEntry" maxlength="10"
+                                                        placeholder="min:sec"
+                                                        class="paceEntry block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                                <label for="calc"
+                                                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                                    Calculate</label>
+                                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                                    <input type="text" name="paceEntry" id="paceEntry" maxlength="10"
+                                                        placeholder="min:sec"
+                                                        class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
+                                                </div>
+                                            </div>
+
+                                            <label>Calculate:</label>
+                                            <input type="button" value="Time" onclick="timeCalc();"
+                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
+
+                                            <input type="button" value="Distance" onclick="distanceCalc();"
+                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
+
+                                            <input type="button" value="Pace" onclick="paceCalc();"
+                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div id="calc">
+                                        <label></label>
+                                        <script>
+                                            document.write("");
+                                        </script>
+                                    </div>
+                                </div>
+                                <!-- .form-->
+                            </form>
+                        </div>
+                        <!-- .container-->
+
+
+
+
+
+                    </div>
+                </div>
+                <!-- /End replace -->
+            </div>
+        </main>
     </div>
-    <!-- .container-->
 
-    <!-- Bootstrap fixed footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">
-                Created by <a href="https://kmarsden.com">Kevin Marsden</a>
-            </p>
-        </div>
-    </footer>
-</body>
-
-</html>
+    <!--#include file="includes/footer.shtml" -->

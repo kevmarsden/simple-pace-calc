@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-control" content="public" />
+
+    <title>Simple Pace Calculator</title>
+    <meta name="description"
+        content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <link href="/assets/css/output.css" rel="stylesheet">
+
+    <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
+
+    <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
+
+</head>
+
+<body>
+    <!-- Bootstrap fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top text-3xl">
+        <div class="container fake">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed text-2xl" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="https://simplepacecalc.com">Simple Pace Calculator</a>
+            </div>
+
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="https://simplepacecalc.com">Home</a>
+                    </li>
+
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+            <!--.nav-collapse -->
+        </div>
+        <!-- .container -->
+    </nav>
+
+    <!-- Bootstrap page content -->
+    <div class="container">
+        <div class="page-header"></div>
+        <!-- end page-header div -->
+
+        <form>
+            <!-- <p>
+                Enter at least two values and click the button for the field you want to calculate
+            </p> -->
+            <div class="form">
+                <label>Time:</label>
+                <input name="timeEntry" type="text" maxlength="10" id="timeEntry" class="timeEntry"
+                    placeholder="hrs:min:sec" pattern="\d:" />
+
+                <label>Distance:</label>
+                <input name="distanceEntry" type="text" maxlength="15" id="distanceEntry" class="distanceEntry"
+                    list="distanceDropMenu" placeholder="distance" />
+                <datalist id="distanceDropMenu">
+                    <option>3 miles</option>
+                    <option>5k</option>
+                    <!-- value = 3.10686 -->
+                    <option>8k</option>
+                    <!-- value = 4.97097 -->
+                    <option>10k</option>
+                    <!-- value = 6.21371 -->
+                    <option>15k</option>
+                    <!-- value = 9.32057 -->
+                    <option>10 miles</option>
+                    <!-- value = 10 -->
+                    <option>Half Marathon</option>
+                    <option>Marathon</option>
+                    <!-- value = 26.21875 -->
+                    <option>50k</option>
+                    <!-- value = 31.0686 -->
+                    <option>50 miles</option>
+                    <!-- value = 50 -->
+                    <option>100k</option>
+                    <!-- value = 62.1371 -->
+                    <option>100 miles</option>
+                    <!-- value = 100 -->
+                </datalist>
+
+                <label>Pace:</label>
+                <input name="paceEntry" type="text" maxlength="10" id="paceEntry" class="passEntry"
+                    placeholder="min:sec" />
+
+                <label>Calculate:</label>
+                <input type="button" value="Time" onclick="timeCalc();" />
+                <input type="button" value="Distance" onclick="distanceCalc();" />
+                <input type="button" value="Pace" onclick="paceCalc();" />
+
+                <div id="calc">
+                    <label></label>
+                    <script>
+                        document.write("");
+                    </script>
+                </div>
+            </div>
+            <!-- .form-->
+        </form>
+    </div>
+    <!-- .container-->
+
+    <!-- Bootstrap fixed footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                Created by <a href="https://kmarsden.com">Kevin Marsden</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

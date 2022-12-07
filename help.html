@@ -1,110 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-	
-	<head>
-
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Cache-control" content="public">
-
-		<title>Help Guide</title>
-		<meta name = "description" content = "Help guide for the simple running pace calculator">
-
-		<link rel='stylesheet' href='assets/css/style.css'>
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href='assets/css/bootstrap.min.css'>
-
-		<script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script async src="assets/js/bootstrap.min.js"></script>
+<!--#include file="includes/header.shtml" -->
 
 
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-				
-				ga('create', 'UA-12018723-17', 'auto');
-				ga('send', 'pageview');
-		</script>
+<body class="h-full">
 
-	</head>
+	<div class="min-h-full">
+		<nav class="bg-gray-800">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="flex h-16 items-center justify-between">
+					<div class="flex items-center justify-start w-full">
+						<div class="flex-shrink-0">
+							<a href="/" class="text-white">Simple Pace Calc</a>
+						</div>
+						<div class="hidden md:block mx-auto">
+							<div class="ml-10 flex items-baseline space-x-4 justify-center">
+								<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+								<a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+									aria-current="page">Home</a>
 
-	<body>
+								<a href="/help.html"
+									class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Help</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div class = 'wrap'>
-			<!-- Bootstrap fixed navbar -->
-			<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="https://simplepacecalc.com">Simple Pace Calculator</a>
-        		</div> <!-- end navbar-header div -->
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="https://simplepacecalc.com">Home</a></li>
-						<li class="active"><a href="help.html">Help</a></li>
-        			</ul>
-				</div><!-- .nav-collapse -->
-    		</div> <!-- .container -->
-    		</nav>
+			<!-- Mobile menu, show/hide based on menu state. -->
+			<div class="md:hidden" id="mobile-menu">
+				<div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+					<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+					<a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+						aria-current="page">Dashboard</a>
 
-			<div class="container">
-	
-				<div class="page-header">
-					<h3>Help Guide</h3>
-	    		</div><!-- end page-header div -->
-	
-				<h4>Time</h4>
-	
-				<p>If no colons are used, the time defaults to minutes. For example, entering <code>23</code> is the same as entering <code>00:23:00</code></p>
-	
-				<p>If only one colon is used, the time is assumed to be <code>minutes:seconds</code>. For example, entering <code>23:30</code> is the same as entering <code>00:23:30</code></p>
-	
-				<p>If the time includes hours, two colons should be used and the total time should be entered like this:</p>
-	
-				<p><code>hours:minutes:seconds</code></p>
-	
-				<p>For example, for fifteen hours enter:</p>
-	
-				<p><code>15:00:00</code></p>
-	
-				<h4>Distances</h4>
-	
-				<p>Distance will default to miles, but can be entered in the following formats and they will be converted to miles:</p>
-	
-				<ul>
-					<li>Kilometers</li>
-					<li>k</li>
-					<li>meters</li>
-				</ul>
-				
-			</div> <!-- .container -->
+					<a href="#"
+						class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
 
-		</div> <!-- .wrap -->
+					<a href="#"
+						class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
 
-		<!-- Bootstrap fixed footer -->
-		<footer class="footer">
-			
-    		<div class="container">
-	    		
-	    		<p class="text-muted">Created by <a href='https://kmarsden.com'>Kevin Marsden</a></p>
-	    		
-    		</div>
-    		
- 		</footer>
- 		
-   </body>
-   
-</html>
+					<a href="#"
+						class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+
+					<a href="#"
+						class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+				</div>
+
+			</div>
+		</nav>
+
+		<main>
+			<div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+				<!-- Replace with your content -->
+				<div class="px-4 py-6 sm:px-0">
+					<div class="h-96 rounded-lg border-4 border-dashed border-gray-200">
+
+						<h4>Time</h4>
+
+						<p>If no colons are used, the time defaults to minutes. For example, entering <code>23</code> is the same as
+							entering <code>00:23:00</code></p>
+
+						<p>If only one colon is used, the time is assumed to be <code>minutes:seconds</code>. For example, entering
+							<code>23:30</code> is the same as entering <code>00:23:30</code>
+						</p>
+
+						<p>If the time includes hours, two colons should be used and the total time should be entered like this:</p>
+
+						<p><code>hours:minutes:seconds</code></p>
+
+						<p>For example, for fifteen hours enter:</p>
+
+						<p><code>15:00:00</code></p>
+
+						<h4>Distances</h4>
+
+						<p>Distance will default to miles, but can be entered in the following formats and they will be converted to
+							miles:</p>
+
+						<ul>
+							<li>Kilometers</li>
+							<li>k</li>
+							<li>meters</li>
+						</ul>
+
+
+					</div>
+				</div>
+				<!-- /End replace -->
+			</div>
+		</main>
+	</div>
+
+	<!--#include file="includes/footer.shtml" -->

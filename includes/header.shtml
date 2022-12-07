@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-control" content="public" />
+
+  <title>Simple Pace Calculator</title>
+  <meta name="description"
+    content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <link href="./assets/css/output.css" rel="stylesheet">
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/page.js"></script>
+
+  <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
+
+</head>
