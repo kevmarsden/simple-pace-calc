@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-control" content="public" />
+
+  <title>Simple Pace Calculator - Three Hour Marathon Pace Chart</title>
+  <meta name="description"
+    content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <link href="./assets/css/output.css" rel="stylesheet">
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/page.js"></script>
+
+  <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
+
+</head>
+
+
+<body class="h-full">
+
+  <div class="min-h-full">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <a href="/" class="text-white">Simple Pace Calc</a>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  aria-current="page">Home</a>
+
+                <a href="./help.html"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Help</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="md:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+            aria-current="page">Home</a>
+
+          <a href="./help.html"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Help</a>
+
+        </div>
+
+      </div>
+    </nav>
+
+    <main>
+      <div class="px-4 sm:px-6 lg:px-8">
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900"></h1>
+            <p class="mt-2 text-sm text-gray-700"></p>
+          </div>
+
+        </div>
+        <div class="mt-8 flow-root">
+          <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="pace-table inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <h1>Marathon Pace Chart</h1>
+              <table class="min-w-full divide-y divide-gray-300">
+                <thead>
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Mile
+                    </th>
+                    <th scope="col" class="px-3 py-3.5 text-sm font-semibold text-gray-900">Time</th>
+                  </tr>
+                </thead>
+                <tbody id="pace-chart" class="divide-y divide-gray-200">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const pacePerMile = 6.10; // Pace in minutes per mile, you can modify this value
+      const totalMiles = 26.2188; // Total miles in a marathon
+      const halfMarathonMiles = 13.1094;
+
+      function convertToTimeString(minutes) {
+        let hours = Math.floor(minutes / 60);
+        let remainingMinutes = Math.floor(minutes % 60);
+        let seconds = Math.round((minutes % 1) * 60);
+        if (seconds === 60) {
+          //if seconds round up to 60, add a minute and make seconds == '00'
+          remainingMinutes += 1;
+          seconds = 0;
+        }
+        if (remainingMinutes === 60) {
+          //if minutes round up to 60, add an hour and make minutes == '00'
+          hours = hours + 1;
+          remainingMinutes = 0;
+        }
+        return `${hours > 0 ? hours + ':' : ''}${remainingMinutes.toString().padStart(hours > 0 ? 2 : 1, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      function generatePaceChart() {
+        const paceChartElement = document.getElementById('pace-chart');
+        let totalTime = 0;
+
+        for (let i = 1; i <= totalMiles; i++) {
+          totalTime += pacePerMile;
+          if (i === Math.round(halfMarathonMiles)) {
+            paceChartElement.innerHTML += `
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">${i}</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right">${convertToTimeString(totalTime)}</td>
+            </tr>`;
+            halfTime = totalTime / i * halfMarathonMiles;
+            paceChartElement.innerHTML += `
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Half Marathon</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right">${convertToTimeString(halfTime)}</td >
+            </tr > `;
+          } else {
+            paceChartElement.innerHTML += `
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">${i}</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right">${convertToTimeString(totalTime)}</td>
+            </tr>`;
+          }
+        }
+
+        // Add the remaining 0.2 miles to the finish time
+        totalTime = totalTime / 26 * totalMiles;
+        paceChartElement.innerHTML += `
+            <tr>
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Finish</td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right">${convertToTimeString(totalTime)}</td>
+            </tr>`;
+      }
+
+      generatePaceChart();
+    </script>
+
+
+</body>
+
+</html>

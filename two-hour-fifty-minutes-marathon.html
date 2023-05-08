@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-control" content="public" />
+
+  <title>Simple Pace Calculator - Three Hour Marathon Pace Chart</title>
+  <meta name="description"
+    content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <link href="./assets/css/output.css" rel="stylesheet">
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
+
+  <script async language="javascript" type="text/javascript" src="./assets/js/page.js"></script>
+
+  <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
+
+</head>
+
+
+<body class="h-full">
+
+  <div class="min-h-full">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <a href="/" class="text-white">Simple Pace Calc</a>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  aria-current="page">Home</a>
+
+                <a href="./help.html"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Help</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="md:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+            aria-current="page">Home</a>
+
+          <a href="./help.html"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Help</a>
+
+        </div>
+
+      </div>
+    </nav>
+
+    <main>
+      <div class="px-4 sm:px-6 lg:px-8">
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">Users</h1>
+            <p class="mt-2 text-sm text-gray-700"></p>
+          </div>
+
+        </div>
+        <div class="mt-8 flow-root">
+          <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="pace-table inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+    <script>
+      // Set variables for the marathon distance and the total time in seconds
+      const marathonDistance = 26.2; // miles
+      const marathonTimeInSeconds = 3 * 60 * 60; // seconds
+      const halfMarathonDistance = 13.1; // miles
+
+      // Create a table element and a header row with the mile and time headings
+      const table = document.createElement('table');
+      table.classList.add('min-w-full divide-y divide-gray-300');
+      const headerRow = document.createElement('tr');
+      const mileHeader = document.createElement('th');
+      mileHeader.classList.add('py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0');
+      mileHeader.textContent = 'Mile';
+      headerRow.appendChild(mileHeader);
+      const timeHeader = document.createElement('th');
+      timeHeader.classList.add('px-3 py-3.5 text-left text-sm font-semibold text-gray-900');
+      timeHeader.textContent = 'Time';
+      headerRow.appendChild(timeHeader);
+      table.appendChild(headerRow);
+
+      // Loop through each mile and calculate the time at that mile
+      for (let mile = 1; mile <= marathonDistance; mile++) {
+        const timeInSeconds = marathonTimeInSeconds * (mile / marathonDistance);
+        const timeString = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
+        // Create a new row with the mile and time data and append it to the table
+        const row = document.createElement('tr');
+        const mileData = document.createElement('td');
+        mileData.classList.add('whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0');
+
+        mileData.textContent = mile;
+        row.appendChild(mileData);
+        const timeData = document.createElement('td');
+        timeData.classList.add('whitespace-nowrap px-3 py-4 text-sm text-gray-500');
+
+        timeData.textContent = timeString;
+        row.appendChild(timeData);
+        table.appendChild(row);
+
+        // Add a row for the half marathon split, 13.1 miles
+        if (mile === 13) {
+          const halfRow = document.createElement('tr');
+          const halfMileData = document.createElement('td');
+          halfMileData.classList.add('whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0');
+          halfMileData.textContent = 'Half';
+          halfRow.appendChild(halfMileData);
+          const halfTimeData = document.createElement('td');
+          halfTimeData.classList.add('whitespace-nowrap px-3 py-4 text-sm text-gray-500');
+          halfTimeData.textContent = new Date((marathonTimeInSeconds * (halfMarathonDistance / marathonDistance)) * 1000).toISOString().substr(11, 8);
+          halfRow.appendChild(halfTimeData);
+          table.appendChild(halfRow);
+        }
+      }
+
+      // Add a row for the finish, 26.2 miles
+      const finishRow = document.createElement('tr');
+      const finishMileData = document.createElement('td');
+      finishMileData.classList.add('whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0');
+      finishMileData.textContent = marathonDistance;
+      finishRow.appendChild(finishMileData);
+      const finishTimeData = document.createElement('td');
+      finishTimeData.classList.add('whitespace-nowrap px-3 py-4 text-sm text-gray-500');
+      finishTimeData.textContent = new Date(marathonTimeInSeconds * 1000).toISOString().substr(11, 8);
+      finishRow.appendChild(finishTimeData);
+      table.appendChild(finishRow);
+
+      // Append the table to the main element of the HTML document
+      const main = document.querySelector('main');
+      main.appendChild(table);
+    </script>
+</body>
+
+</html>
