@@ -20,4 +20,6 @@
 
   <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
 
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>

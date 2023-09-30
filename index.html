@@ -60,14 +60,15 @@
                                     <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
                                         <div>
                                             <h3 class="text-lg font-medium leading-6 text-gray-900"></h3>
-                                            <p class="mt-1 max-w-2xl text-sm text-gray-500">Enter two of the three
+                                            <p class="mt-1 max-w-2xl text-md text-gray-500 text-center">Enter two of the
+                                                three
                                                 values and select which value you would like to calculate
                                             </p>
                                         </div>
                                         <div class="space-y-6 sm:space-y-5">
                                             <div
                                                 class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                                <label for="time
+                                                <label for="time"
                                                     class=" block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                                     Time</label>
                                                 <div class="mt-1 sm:col-span-2 sm:mt-0">
@@ -123,28 +124,21 @@
                                                         class="paceEntry block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
                                                 </div>
                                             </div>
+                                            <div class="grid grid-cols-4 gap-1">
+                                                <label
+                                                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Calculate</label>
+                                                <div
+                                                    class="text-center col-span-3 grid grid-cols-3 justify-items-center">
+                                                    <input type="button" value="Time" onclick="timeCalc();"
+                                                        class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
 
-                                            <div
-                                                class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                                <label for="calc"
-                                                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                                    Calculate</label>
-                                                <div class="mt-1 sm:col-span-2 sm:mt-0">
-                                                    <input type="text" name="paceEntry" id="paceEntry" maxlength="10"
-                                                        placeholder="min:sec"
-                                                        class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
+                                                    <input type="button" value="Distance" onclick="distanceCalc();"
+                                                        class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
+
+                                                    <input type="button" value="Pace" onclick="paceCalc();"
+                                                        class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
                                                 </div>
                                             </div>
-
-                                            <label>Calculate:</label>
-                                            <input type="button" value="Time" onclick="timeCalc();"
-                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
-
-                                            <input type="button" value="Distance" onclick="distanceCalc();"
-                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
-
-                                            <input type="button" value="Pace" onclick="paceCalc();"
-                                                class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
 
 
 
