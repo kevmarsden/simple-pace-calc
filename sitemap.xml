@@ -6,11 +6,15 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://www.simplepacecalc.com/</loc>
+  <loc>https://simplepacecalc.com/</loc>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://www.simplepacecalc.com/help.html</loc>
-  <changefreq>monthly</changefreq>
+  <loc>https://simplepacecalc.com/privacy</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://simplepacecalc.com/contact</loc>
+  <changefreq>yearly</changefreq>
 </url>
 </urlset>

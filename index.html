@@ -4,130 +4,144 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-control" content="public" />
 
-    <title>Simple Pace Calculator</title>
+    <title>Simple Pace - Running Pace Calculator App</title>
     <meta name="description"
-        content="Once you enter your running time and distance, the simple pace calculator will output the running pace in minutes per mile" />
+        content="Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly." />
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6b6b',
+                        secondary: '#ee5a5a'
+                    }
+                }
+            }
+        }
+    </script>
 
-    <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
-
-    <!-- Bootstrap CSS and theme -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script async src="./assets/js/bootstrap.min.js"></script>
-
-    <script async defer data-domain="simplepacecalc.com" src="https://plausible.io/js/plausible.js"></script>
-
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init ss us bi os hs es ns capture Bi calculateEventProperties cs register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty ps vs createPersonProfile gs Zr ys opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ds debug O fs getPageViewId captureTraceFeedback captureTraceMetric Yr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_9yR9Sz3M8EAV55VEOmebrhssHEQ7HmTDoOpyOVDib10', {
+            api_host: 'https://us.i.posthog.com',
+            defaults: '2025-11-30',
+            person_profiles: 'identified_only',
+        })
+    </script>
 </head>
 
-<body>
-    <!-- Bootstrap fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container fake">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="https://simplepacecalc.com">Simple Pace Calculator</a>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold text-primary">Simple Pace</a>
+            <div class="space-x-6">
+                <a href="privacy.html" class="text-gray-600 hover:text-primary">Privacy</a>
+                <a href="contact.html" class="text-gray-600 hover:text-primary">Contact</a>
             </div>
-
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="https://simplepacecalc.com">Home</a>
-                    </li>
-
-                    <li><a href="help.html">Help</a></li>
-                </ul>
-            </div>
-            <!--.nav-collapse -->
         </div>
-        <!-- .container -->
     </nav>
 
-    <!-- Bootstrap page content -->
-    <div class="container">
-        <div class="page-header"></div>
-        <!-- end page-header div -->
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-red-50 to-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-primary font-semibold mb-4 tracking-wide uppercase">For runners, by runners</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                Know your pace.<br/>
+                <span class="text-primary">Crush your goals.</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                No bloat. No subscriptions. Just a beautifully simple calculator
+                for pace, time, distance, and splits. Because math shouldn't slow you down.
+            </p>
+            <a href="https://apps.apple.com/app/simple-pace"
+               class="inline-block">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                     alt="Download on the App Store"
+                     class="h-14" />
+            </a>
+        </div>
+    </section>
 
-        <form>
-            <!-- <p>
-                Enter at least two values and click the button for the field you want to calculate
-            </p> -->
-            <div class="form">
-                <label>Time:</label>
-                <input name="timeEntry" type="text" maxlength="10" id="timeEntry" class="timeEntry"
-                    placeholder="hrs:min:sec" pattern="\d:" />
+    <!-- Screenshots Section -->
+    <section class="py-16 bg-gray-50 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">See it in action</h2>
+            <div class="flex justify-center items-center gap-6 flex-wrap">
+                <img src="assets/pacecalc-light.png"
+                     alt="Simple Pace calculator screen"
+                     class="w-64 rounded-3xl shadow-xl" />
+                <img src="assets/pacecalc-light-screenshot.png"
+                     alt="Simple Pace app screenshot"
+                     class="w-64 rounded-3xl shadow-xl" />
+                <img src="assets/pacecalc-light3.png"
+                     alt="Simple Pace splits screen"
+                     class="w-64 rounded-3xl shadow-xl" />
+            </div>
+        </div>
+    </section>
 
-                <label>Distance:</label>
-                <input name="distanceEntry" type="text" maxlength="15" id="distanceEntry" class="distanceEntry"
-                    list="distanceDropMenu" placeholder="distance" />
-                <datalist id="distanceDropMenu">
-                    <option>3 miles</option>
-                    <option>5k</option>
-                    <!-- value = 3.10686 -->
-                    <option>8k</option>
-                    <!-- value = 4.97097 -->
-                    <option>10k</option>
-                    <!-- value = 6.21371 -->
-                    <option>15k</option>
-                    <!-- value = 9.32057 -->
-                    <option>10 miles</option>
-                    <!-- value = 10 -->
-                    <option>Half Marathon</option>
-                    <option>Marathon</option>
-                    <!-- value = 26.21875 -->
-                    <option>50k</option>
-                    <!-- value = 31.0686 -->
-                    <option>50 miles</option>
-                    <!-- value = 50 -->
-                    <option>100k</option>
-                    <!-- value = 62.1371 -->
-                    <option>100 miles</option>
-                    <!-- value = 100 -->
-                </datalist>
-
-                <label>Pace:</label>
-                <input name="paceEntry" type="text" maxlength="10" id="paceEntry" class="passEntry"
-                    placeholder="min:sec" />
-
-                <label>Calculate:</label>
-                <input type="button" value="Time" onclick="timeCalc();" />
-                <input type="button" value="Distance" onclick="distanceCalc();" />
-                <input type="button" value="Pace" onclick="paceCalc();" />
-
-                <div id="calc">
-                    <label></label>
-                    <script>
-                        document.write("");
-                    </script>
+    <!-- Features Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-4">⏱️</div>
+                    <h3 class="text-xl font-semibold mb-2">Pace Calculator</h3>
+                    <p class="text-gray-600">
+                        Calculate your pace, time, or distance. Enter any two values and get the third instantly.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-4">🏃</div>
+                    <h3 class="text-xl font-semibold mb-2">Workout Splits</h3>
+                    <p class="text-gray-600">
+                        Plan your training with detailed workout splits for intervals, tempo runs, and more.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-4xl mb-4">🏁</div>
+                    <h3 class="text-xl font-semibold mb-2">Race Splits</h3>
+                    <p class="text-gray-600">
+                        Get mile-by-mile or kilometer splits for any race distance from 5K to ultramarathon.
+                    </p>
                 </div>
             </div>
-            <!-- .form-->
-        </form>
-    </div>
-    <!-- .container-->
+        </div>
+    </section>
 
-    <!-- Bootstrap fixed footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">
-                Created by <a href="https://kmarsden.com">Kevin Marsden</a>
-            </p>
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to run?</h2>
+            <p class="text-gray-600 mb-8">Download Simple Pace and start planning your runs today.</p>
+            <a href="https://apps.apple.com/app/simple-pace"
+               class="inline-block">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                     alt="Download on the App Store"
+                     class="h-14" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">
+                    Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
+                </p>
+                <div class="space-x-6">
+                    <a href="privacy.html" class="hover:text-white">Privacy</a>
+                    <a href="contact.html" class="hover:text-white">Contact</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
