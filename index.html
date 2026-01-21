@@ -9,7 +9,105 @@
     <meta name="description"
         content="Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly." />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://simplepacecalc.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://simplepacecalc.com/" />
+    <meta property="og:title" content="Simple Pace - Running Pace Calculator App" />
+    <meta property="og:description" content="Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly." />
+    <meta property="og:image" content="https://simplepacecalc.com/assets/pacecalc-light-screenshot.png" />
+    <meta property="og:site_name" content="Simple Pace" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Simple Pace - Running Pace Calculator App" />
+    <meta name="twitter:description" content="Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly." />
+    <meta name="twitter:image" content="https://simplepacecalc.com/assets/pacecalc-light-screenshot.png" />
+
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Simple Pace",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "description": "Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly.",
+        "url": "https://simplepacecalc.com/",
+        "downloadUrl": "https://apps.apple.com/app/simple-pace/id6757935168",
+        "screenshot": "https://simplepacecalc.com/assets/pacecalc-light-screenshot.png",
+        "author": {
+            "@type": "Person",
+            "name": "Kevin Marsden",
+            "url": "https://kmarsden.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0.99",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        }
+    }
+    </script>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I calculate my running pace for a workout or race?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Enter your total time and distance in Simple Pace, and the app instantly calculates your pace in minutes per mile or kilometer. For example, if you ran 5 miles in 40 minutes, your pace is 8:00 per mile."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What race distances does Simple Pace support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simple Pace supports all common race distances including 5K, 10K, half marathon, marathon, and ultramarathon distances like 50K and 100 miles. You can also enter any custom distance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I get goal splits for my upcoming race?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Simple Pace provides mile-by-mile or kilometer-by-kilometer splits for any race distance. This helps you plan your pacing strategy and stay on target during your race."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does Simple Pace cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simple Pace is just $0.99 in the U.S. with no ads, no subscriptions, and no hidden fees. Pay once and enjoy a clean, distraction-free pace calculator forever."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Simple Pace work offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Simple Pace works completely offline. All calculations are done on your device, so you can use it anywhere - at the track, on trails, or at the starting line."
+                }
+            }
+        ]
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,18 +133,19 @@
     </script>
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="/" class="text-xl font-bold text-primary">Simple Pace</a>
             <div class="space-x-6">
-                <a href="privacy.html" class="text-gray-600 hover:text-primary">Privacy</a>
-                <a href="contact.html" class="text-gray-600 hover:text-primary">Contact</a>
+                <a href="privacy" class="text-gray-600 hover:text-primary">Privacy</a>
+                <a href="contact" class="text-gray-600 hover:text-primary">Contact</a>
             </div>
         </div>
     </nav>
 
+    <main class="flex-grow">
     <!-- Hero Section -->
     <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-red-50 to-white">
         <div class="max-w-4xl mx-auto text-center">
@@ -59,7 +158,7 @@
                 No bloat. No subscriptions. Just a beautifully simple calculator
                 for pace, time, distance, and splits. Because math shouldn't slow you down.
             </p>
-            <a href="https://apps.apple.com/app/simple-pace"
+            <a href="https://apps.apple.com/app/simple-pace/id6757935168"
                class="inline-block">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                      alt="Download on the App Store"
@@ -116,12 +215,41 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <details class="bg-white rounded-lg p-6 shadow-sm">
+                    <summary class="font-semibold cursor-pointer">How do I calculate my running pace?</summary>
+                    <p class="mt-4 text-gray-600">Enter your total time and distance in Simple Pace, and the app instantly calculates your pace in minutes per mile or kilometer. For example, if you ran 5 miles in 40 minutes, your pace is 8:00 per mile.</p>
+                </details>
+                <details class="bg-white rounded-lg p-6 shadow-sm">
+                    <summary class="font-semibold cursor-pointer">What race distances does Simple Pace support?</summary>
+                    <p class="mt-4 text-gray-600">Simple Pace supports all common race distances including 5K, 10K, half marathon, marathon, and ultramarathon distances like 50K and 100 miles. You can also enter any custom distance.</p>
+                </details>
+                <details class="bg-white rounded-lg p-6 shadow-sm">
+                    <summary class="font-semibold cursor-pointer">Can I get splits for my race?</summary>
+                    <p class="mt-4 text-gray-600">Yes! Simple Pace provides mile-by-mile or kilometer-by-kilometer splits for any race distance. This helps you plan your pacing strategy and stay on target during your race.</p>
+                </details>
+                <details class="bg-white rounded-lg p-6 shadow-sm">
+                    <summary class="font-semibold cursor-pointer">How much does Simple Pace cost?</summary>
+                    <p class="mt-4 text-gray-600">Simple Pace is just $0.99 in the U.S. with no ads, no subscriptions, and no hidden fees. Pay once and enjoy a clean, distraction-free pace calculator forever.</p>
+                </details>
+                <details class="bg-white rounded-lg p-6 shadow-sm">
+                    <summary class="font-semibold cursor-pointer">Does Simple Pace work offline?</summary>
+                    <p class="mt-4 text-gray-600">Yes! Simple Pace works completely offline. All calculations are done on your device, so you can use it anywhere - at the track, on trails, or at the starting line.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 px-4">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-6">Ready to run?</h2>
             <p class="text-gray-600 mb-8">Download Simple Pace and start planning your runs today.</p>
-            <a href="https://apps.apple.com/app/simple-pace"
+            <a href="https://apps.apple.com/app/simple-pace/id6757935168"
                class="inline-block">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                      alt="Download on the App Store"
@@ -129,6 +257,7 @@
             </a>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12 px-4">
@@ -138,8 +267,8 @@
                     Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
                 </p>
                 <div class="space-x-6">
-                    <a href="privacy.html" class="hover:text-white">Privacy</a>
-                    <a href="contact.html" class="hover:text-white">Contact</a>
+                    <a href="privacy" class="hover:text-white">Privacy</a>
+                    <a href="contact" class="hover:text-white">Contact</a>
                 </div>
             </div>
         </div>

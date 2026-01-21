@@ -1,0 +1,11 @@
+# robots.txt for Simple Pace
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://simplepacecalc.com/sitemap.xml
+
+# Disallow legacy/utility pages
+Disallow: /calc
+Disallow: /help
+Disallow: /404
