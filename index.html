@@ -5,6 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Preconnect for faster external resource loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://us.i.posthog.com" />
+    <link rel="dns-prefetch" href="https://developer.apple.com" />
+
     <title>Simple Pace - Running Pace Calculator App</title>
     <meta name="description"
         content="Simple Pace is the easiest way to calculate running pace, time, and distance. Get workout splits and race splits instantly." />
@@ -173,13 +178,13 @@
             <h2 class="text-3xl font-bold text-center mb-12">See it in action</h2>
             <div class="flex justify-center items-center gap-6 flex-wrap">
                 <img src="assets/pacecalc-light.png"
-                     alt="Simple Pace calculator screen"
+                     alt="Simple Pace iOS app showing running pace calculator with time, distance, and pace fields"
                      class="w-64 rounded-3xl shadow-xl" />
                 <img src="assets/pacecalc-light-screenshot.png"
-                     alt="Simple Pace app screenshot"
+                     alt="Simple Pace app calculating marathon pace with minutes per mile display"
                      class="w-64 rounded-3xl shadow-xl" />
                 <img src="assets/pacecalc-light3.png"
-                     alt="Simple Pace splits screen"
+                     alt="Simple Pace race splits screen showing mile-by-mile breakdown for a half marathon"
                      class="w-64 rounded-3xl shadow-xl" />
             </div>
         </div>
@@ -267,6 +272,7 @@
                     Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
                 </p>
                 <div class="space-x-6">
+                    <a href="guide" class="hover:text-white">Pace Guide</a>
                     <a href="privacy" class="hover:text-white">Privacy</a>
                     <a href="contact" class="hover:text-white">Contact</a>
                 </div>
