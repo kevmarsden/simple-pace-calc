@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-control" content="public" />
+    <meta name="apple-itunes-app" content="app-id=6757935168" />
 
-    <title>Calculator - Simple Pace Calculator</title>
-    <meta name="description"
-        content="Enter your running time and distance to calculate your pace in minutes per mile" />
+    <!-- Preconnect for faster external resource loading -->
+    <link rel="preconnect" href="https://us.i.posthog.com" />
+
+    <title>Running Pace Calculator: Pace, Time & Distance | Simple Pace</title>
+    <meta name="description" content="Free running pace calculator. Enter any two of time, distance, and pace to get the third, with pace per mile and km, speed, and mile or kilometer splits." />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://simplepacecalc.com/calc" />
@@ -16,31 +18,46 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://simplepacecalc.com/calc" />
-    <meta property="og:title" content="Calculator - Simple Pace Calculator" />
-    <meta property="og:description" content="Enter your running time and distance to calculate your pace in minutes per mile" />
+    <meta property="og:title" content="Running Pace Calculator: Pace, Time & Distance | Simple Pace" />
+    <meta property="og:description" content="Free running pace calculator. Enter any two of time, distance, and pace to get the third, with pace per mile and km, speed, and mile or kilometer splits." />
     <meta property="og:image" content="https://simplepacecalc.com/assets/og-image.png" />
     <meta property="og:site_name" content="Simple Pace" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Calculator - Simple Pace Calculator" />
-    <meta name="twitter:description" content="Enter your running time and distance to calculate your pace in minutes per mile" />
+    <meta name="twitter:title" content="Running Pace Calculator: Pace, Time & Distance | Simple Pace" />
+    <meta name="twitter:description" content="Free running pace calculator. Enter any two of time, distance, and pace to get the third, with pace per mile and km, speed, and mile or kilometer splits." />
     <meta name="twitter:image" content="https://simplepacecalc.com/assets/og-image.png" />
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Simple Pace Running Pace Calculator",
+        "url": "https://simplepacecalc.com/calc",
+        "description": "Free running pace calculator. Enter any two of time, distance, and pace to get the third, with pace per mile and km, speed, and mile or kilometer splits.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "@id": "https://kmarsden.com/#person",
+            "name": "Kevin Marsden",
+            "url": "https://kmarsden.com"
+        }
+    }
+    </script>
 
-    <script async language="javascript" type="text/javascript" src="./assets/js/pace.js"></script>
-
-    <!-- Bootstrap CSS and theme -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script async src="./assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/site.css" />
 
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init ss us bi os hs es ns capture Bi calculateEventProperties cs register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty ps vs createPersonProfile gs Zr ys opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ds debug O fs getPageViewId captureTraceFeedback captureTraceMetric Yr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -50,108 +67,149 @@
             person_profiles: 'identified_only',
         })
     </script>
-
 </head>
 
-<body>
-    <!-- Bootstrap fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container fake">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="https://simplepacecalc.com">Simple Pace Calculator</a>
+<body class="bg-white text-gray-900 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
+            <a href="/" class="text-xl font-bold text-primary whitespace-nowrap">Simple Pace</a>
+            <div class="flex gap-4 sm:gap-6">
+                <a href="calc" class="text-primary font-medium">Calculator</a>
+                <a href="pace-charts" class="text-gray-600 hover:text-primary">Pace Charts</a>
+                <a href="guide" class="text-gray-600 hover:text-primary hidden sm:inline">Guide</a>
             </div>
-
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="https://simplepacecalc.com">Home</a>
-                    </li>
-                    <li class="active"><a href="calc">Calculator</a></li>
-                    <li><a href="help">Help</a></li>
-                </ul>
-            </div>
-            <!--.nav-collapse -->
         </div>
-        <!-- .container -->
     </nav>
 
-    <!-- Bootstrap page content -->
-    <div class="container">
-        <div class="page-header"></div>
-        <!-- end page-header div -->
+    <main class="pt-28 pb-20 px-4 flex-grow">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Running Pace Calculator</h1>
+            <p class="text-xl text-gray-600 mb-8">
+                Enter any two of time, distance, and pace, then choose what to calculate.
+            </p>
 
-        <form>
-            <!-- <p>
-                Enter at least two values and click the button for the field you want to calculate
-            </p> -->
-            <div class="form">
-                <label>Time:</label>
-                <input name="timeEntry" type="text" maxlength="10" id="timeEntry" class="timeEntry"
-                    placeholder="hrs:min:sec" pattern="\d:" />
+            <form id="pace-form" class="bg-gray-50 rounded-lg p-6 space-y-6" autocomplete="off">
+                <div>
+                    <label for="time" class="block font-semibold mb-2">Time <span class="font-normal text-gray-500">(hr:min:sec)</span></label>
+                    <input id="time" type="text" inputmode="numeric" placeholder="1:45:00" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+                </div>
 
-                <label>Distance:</label>
-                <input name="distanceEntry" type="text" maxlength="15" id="distanceEntry" class="distanceEntry"
-                    list="distanceDropMenu" placeholder="distance" />
-                <datalist id="distanceDropMenu">
-                    <option>3 miles</option>
-                    <option>5k</option>
-                    <!-- value = 3.10686 -->
-                    <option>8k</option>
-                    <!-- value = 4.97097 -->
-                    <option>10k</option>
-                    <!-- value = 6.21371 -->
-                    <option>15k</option>
-                    <!-- value = 9.32057 -->
-                    <option>10 miles</option>
-                    <!-- value = 10 -->
-                    <option>Half Marathon</option>
-                    <option>Marathon</option>
-                    <!-- value = 26.21875 -->
-                    <option>50k</option>
-                    <!-- value = 31.0686 -->
-                    <option>50 miles</option>
-                    <!-- value = 50 -->
-                    <option>100k</option>
-                    <!-- value = 62.1371 -->
-                    <option>100 miles</option>
-                    <!-- value = 100 -->
-                </datalist>
+                <div>
+                    <label for="distance" class="block font-semibold mb-2">Distance</label>
+                    <div class="flex gap-2">
+                        <input id="distance" type="text" inputmode="decimal" placeholder="13.1" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-primary min-w-0" />
+                        <select id="distance-unit" aria-label="Distance unit" class="border border-gray-300 rounded-lg px-3 py-3 text-lg bg-white">
+                            <option value="mi">mi</option>
+                            <option value="km">km</option>
+                        </select>
+                    </div>
+                    <label for="race" class="sr-only">Race distance</label>
+                    <select id="race" class="mt-2 w-full border border-gray-300 rounded-lg px-3 py-3 text-lg bg-white">
+                        <option value="">Or choose a race distance…</option>
+                                <option value="1mile" data-distance="1" data-unit="mi">1 mile</option>
+                                <option value="5k" data-distance="5" data-unit="km">5K</option>
+                                <option value="8k" data-distance="8" data-unit="km">8K</option>
+                                <option value="10k" data-distance="10" data-unit="km">10K</option>
+                                <option value="15k" data-distance="15" data-unit="km">15K</option>
+                                <option value="10mile" data-distance="10" data-unit="mi">10 miles</option>
+                                <option value="half" data-distance="21.0975" data-unit="km">Half marathon</option>
+                                <option value="marathon" data-distance="42.195" data-unit="km">Marathon</option>
+                                <option value="50k" data-distance="50" data-unit="km">50K</option>
+                                <option value="50mile" data-distance="50" data-unit="mi">50 miles</option>
+                                <option value="100k" data-distance="100" data-unit="km">100K</option>
+                                <option value="100mile" data-distance="100" data-unit="mi">100 miles</option>
+                    </select>
+                </div>
 
-                <label>Pace:</label>
-                <input name="paceEntry" type="text" maxlength="10" id="paceEntry" class="passEntry"
-                    placeholder="min:sec" />
+                <div>
+                    <label for="pace" class="block font-semibold mb-2">Pace <span class="font-normal text-gray-500">(min:sec)</span></label>
+                    <div class="flex gap-2">
+                        <input id="pace" type="text" inputmode="numeric" placeholder="8:00" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-primary min-w-0" />
+                        <select id="pace-unit" aria-label="Pace unit" class="border border-gray-300 rounded-lg px-3 py-3 text-lg bg-white">
+                            <option value="mi">/mi</option>
+                            <option value="km">/km</option>
+                        </select>
+                    </div>
+                </div>
 
-                <label>Calculate:</label>
-                <input type="button" value="Time" onclick="timeCalc();" />
-                <input type="button" value="Distance" onclick="distanceCalc();" />
-                <input type="button" value="Pace" onclick="paceCalc();" />
+                <div>
+                    <p class="font-semibold mb-2">Calculate</p>
+                    <div class="flex gap-2">
+                        <button type="button" data-calculate="pace" class="flex-1 bg-primary hover:bg-secondary text-white font-semibold rounded-lg px-4 py-3">Pace</button>
+                        <button type="button" data-calculate="time" class="flex-1 bg-primary hover:bg-secondary text-white font-semibold rounded-lg px-4 py-3">Time</button>
+                        <button type="button" data-calculate="distance" class="flex-1 bg-primary hover:bg-secondary text-white font-semibold rounded-lg px-4 py-3">Distance</button>
+                    </div>
+                </div>
 
-                <div id="calc">
-                    <label></label>
-                    <script>
-                        document.write("");
-                    </script>
+                <div id="result" aria-live="polite"></div>
+                <button type="submit" class="hidden">Calculate</button>
+            </form>
+
+            <div id="splits" class="mt-8"></div>
+
+            <h2 id="how-to-use" class="text-2xl font-bold mt-12 mb-4">How to use the pace calculator</h2>
+            <p class="text-gray-700 mb-4">
+                Fill in any two fields and press the button for the one you want. The calculator also shows your speed and a split for every mile or kilometer.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                <li><strong>Pace</strong> needs a time and a distance. Example: 1:45:00 for 13.1 miles is 8:01 per mile.</li>
+                <li><strong>Time</strong> needs a distance and a pace. Example: 26.2 miles at 9:00 per mile is 3:55:48.</li>
+                <li><strong>Distance</strong> needs a time and a pace. Example: 45 minutes at 7:30 per mile is 6 miles.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-8 mb-3">Entering times</h3>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                <li>A number with no colons is minutes: <code>23</code> is 23 minutes.</li>
+                <li>One colon is minutes and seconds: <code>23:30</code> is 23 minutes, 30 seconds.</li>
+                <li>Two colons is hours, minutes, and seconds: <code>1:23:30</code> is 1 hour, 23 minutes, 30 seconds.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-8 mb-3">Distances and units</h3>
+            <p class="text-gray-700 mb-4">
+                Enter a distance in miles or kilometers, or pick a race distance from the list. The pace unit controls the splits: choose /mi for mile splits or /km for kilometer splits.
+                See the <a href="guide" class="text-primary hover:underline">guide to calculating running pace</a> for the formulas behind the calculator.
+            </p>
+
+            <h2 class="text-2xl font-bold mt-12 mb-4">Pace charts</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li><a href="5k-pace-chart" class="text-primary hover:underline">5K pace chart</a></li>
+                <li><a href="10k-pace-chart" class="text-primary hover:underline">10K pace chart</a></li>
+                <li><a href="half-marathon-pace-chart" class="text-primary hover:underline">Half marathon pace chart</a></li>
+                <li><a href="marathon-pace-chart" class="text-primary hover:underline">Marathon pace chart</a></li>
+                <li><a href="pace-conversion" class="text-primary hover:underline">Pace conversion chart</a></li>
+            </ul>
+
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-lg p-8 mt-12 text-white text-center">
+                <h2 class="text-2xl font-bold mb-4">Take your pace with you</h2>
+                <p class="mb-6 opacity-90">Simple Pace for iPhone gives you pace, workout splits, and race splits in seconds, even offline.</p>
+                <a href="https://apps.apple.com/app/simple-pace/id6757935168" class="inline-block">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                         alt="Download Simple Pace on the App Store"
+                         width="120" height="40"
+                         class="h-14 w-auto" />
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/calculator.js" defer></script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>
+                    Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
+                </p>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                    <a href="calc" class="hover:text-white">Calculator</a>
+                    <a href="pace-charts" class="hover:text-white">Pace Charts</a>
+                    <a href="guide" class="hover:text-white">Pace Guide</a>
+                    <a href="privacy" class="hover:text-white">Privacy</a>
+                    <a href="contact" class="hover:text-white">Contact</a>
                 </div>
             </div>
-            <!-- .form-->
-        </form>
-    </div>
-    <!-- .container-->
-
-    <!-- Bootstrap fixed footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">
-                Created by <a href="https://kmarsden.com">Kevin Marsden</a>
-            </p>
         </div>
     </footer>
 </body>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-itunes-app" content="app-id=6757935168" />
 
     <!-- Preconnect for faster external resource loading -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <link rel="preconnect" href="https://us.i.posthog.com" />
 
     <title>Contact - Simple Pace Running Pace Calculator</title>
@@ -55,19 +55,7 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#ff6b6b',
-                        secondary: '#ee5a5a'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="assets/css/site.css" />
 
     <script>
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init ss us bi os hs es ns capture Bi calculateEventProperties cs register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty ps vs createPersonProfile gs Zr ys opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ds debug O fs getPageViewId captureTraceFeedback captureTraceMetric Yr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -82,11 +70,12 @@
 <body class="bg-white text-gray-900 min-h-screen flex flex-col">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold text-primary">Simple Pace</a>
-            <div class="space-x-6">
-                <a href="privacy" class="text-gray-600 hover:text-primary">Privacy</a>
-                <a href="contact" class="text-primary font-medium">Contact</a>
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
+            <a href="/" class="text-xl font-bold text-primary whitespace-nowrap">Simple Pace</a>
+            <div class="flex gap-4 sm:gap-6">
+                <a href="calc" class="text-gray-600 hover:text-primary">Calculator</a>
+                <a href="pace-charts" class="text-gray-600 hover:text-primary">Pace Charts</a>
+                <a href="guide" class="text-gray-600 hover:text-primary hidden sm:inline">Guide</a>
             </div>
         </div>
     </nav>
@@ -123,11 +112,13 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12 px-4">
         <div class="max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>
                     Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
                 </p>
-                <div class="space-x-6">
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                    <a href="calc" class="hover:text-white">Calculator</a>
+                    <a href="pace-charts" class="hover:text-white">Pace Charts</a>
                     <a href="guide" class="hover:text-white">Pace Guide</a>
                     <a href="privacy" class="hover:text-white">Privacy</a>
                     <a href="contact" class="hover:text-white">Contact</a>
