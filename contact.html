@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <link rel="preconnect" href="https://us.i.posthog.com" />
 
-    <title>Contact - Simple Pace</title>
+    <title>Contact - Simple Pace Running Pace Calculator</title>
     <meta name="description" content="Contact Simple Pace - Get in touch with questions, feedback, or suggestions." />
 
     <!-- Canonical URL -->
@@ -20,15 +20,40 @@
     <meta property="og:url" content="https://simplepacecalc.com/contact" />
     <meta property="og:title" content="Contact - Simple Pace" />
     <meta property="og:description" content="Contact Simple Pace - Get in touch with questions, feedback, or suggestions." />
+    <meta property="og:image" content="https://simplepacecalc.com/assets/og-image.png" />
     <meta property="og:site_name" content="Simple Pace" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Contact - Simple Pace" />
     <meta name="twitter:description" content="Contact Simple Pace - Get in touch with questions, feedback, or suggestions." />
+    <meta name="twitter:image" content="https://simplepacecalc.com/assets/og-image.png" />
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Simple Pace",
+        "url": "https://simplepacecalc.com/contact",
+        "description": "Contact Simple Pace - Get in touch with questions, feedback, or suggestions.",
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://kmarsden.com/#person",
+            "name": "Kevin Marsden",
+            "url": "https://kmarsden.com",
+            "email": "mailto:hello@simplepacecalc.com"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Simple Pace",
+            "url": "https://simplepacecalc.com/"
+        }
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -69,19 +94,29 @@
     <!-- Content -->
     <main class="pt-28 pb-20 px-4 flex-grow">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl font-bold mb-6">Contact Us</h1>
+            <h1 class="text-4xl font-bold mb-6">Contact Simple Pace</h1>
 
-            <p class="text-xl text-gray-600 mb-8">
+            <p class="text-xl text-gray-600 mb-6">
                 Have questions, feedback, or suggestions? I'd love to hear from you.
             </p>
 
+            <p class="text-gray-700 mb-8">
+                Looking for a quick answer? Check the <a href="/#faq" class="text-primary hover:underline">FAQ</a>
+                or the <a href="guide" class="text-primary hover:underline">guide to calculating running pace</a>.
+            </p>
+
             <div class="bg-gray-50 rounded-lg p-8">
-                <p class="text-gray-700 mb-2">Email us at:</p>
+                <p class="text-gray-700 mb-2">Email me at:</p>
                 <a href="mailto:hello@simplepacecalc.com"
                    class="text-2xl text-primary hover:underline font-medium">
                     hello@simplepacecalc.com
                 </a>
             </div>
+
+            <p class="text-gray-700 mt-8">
+                <a href="https://apps.apple.com/app/simple-pace/id6757935168" class="text-primary hover:underline">Download Simple Pace on the App Store</a>
+                to calculate pace, time, and distance on your iPhone.
+            </p>
         </div>
     </main>
 
@@ -93,6 +128,7 @@
                     Created by <a href="https://kmarsden.com" class="text-white hover:underline">Kevin Marsden</a>
                 </p>
                 <div class="space-x-6">
+                    <a href="guide" class="hover:text-white">Pace Guide</a>
                     <a href="privacy" class="hover:text-white">Privacy</a>
                     <a href="contact" class="hover:text-white">Contact</a>
                 </div>
